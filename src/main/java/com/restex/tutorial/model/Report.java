@@ -11,9 +11,8 @@ import javax.persistence.*;
 @Table(name = "report")
 @EntityListeners(AuditingEntityListener.class)
 @NamedQuery(name = "Report.getReportsByPriorityAndUsername",
-        query = "SELECT r FROM Report r , Employee e WHERE e.username = ?1 AND r.priority = ?2 "
+        query = "SELECT r FROM Report r INNER JOIN r.employee WHERE r.employee.username = ?1 AND r.priority = ?2 "
 )
-
 public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

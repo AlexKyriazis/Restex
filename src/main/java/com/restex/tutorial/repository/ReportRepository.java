@@ -1,13 +1,13 @@
 package com.restex.tutorial.repository;
 
 import com.restex.tutorial.model.Report;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 public interface ReportRepository extends JpaRepository<Report, Long> {
 
 
-   public List<Report> getReportsByPriorityAndUsername(String username, String priority);
+   public Page<Report> getReportsByPriorityAndUsername(String username, String priority, Pageable pageable);
 
 }

@@ -15,6 +15,9 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ApplicationTests {
@@ -72,4 +75,31 @@ public class ApplicationTests {
         Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
+    @Test
+    public void testGetWrongURL() {
+
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+
+        ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/all",
+                HttpMethod.GET, entity, String.class);
+
+        Assert.assertNotNull(response.getBody());
+        Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+
+    @Test
+    public void testGetPageDoesntExist() {
+
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+
+        String url = getRootUrl() + "api/reports/userNamePriority/?username=giorgos34&priority=low&pageNumber=10";
+
+        Map<String, String> params = new HashMap<>();
+        params.put("pageNumber", "1");
+        params.put("username", "giorgos34");
+        params.put("priority", "low");
+
+    }
 }

@@ -1,9 +1,9 @@
+package com.restex.tutorial.model;
 
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "employee")

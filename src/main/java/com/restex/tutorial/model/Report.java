@@ -1,8 +1,12 @@
+package com.restex.tutorial.model;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
+/**
+ *
+ */
 @Entity
 @Table(name = "report")
 @EntityListeners(AuditingEntityListener.class)

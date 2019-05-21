@@ -1,4 +1,10 @@
+package com.restex.tutorial;
 
+import com.restex.tutorial.model.Employee;
+import com.restex.tutorial.model.Priority;
+import com.restex.tutorial.model.Report;
+import com.restex.tutorial.repository.EmployeeRepository;
+import com.restex.tutorial.repository.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;

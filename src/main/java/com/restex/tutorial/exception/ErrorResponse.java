@@ -1,3 +1,4 @@
+package com.restex.tutorial.exception;
 
 import java.util.Date;
 

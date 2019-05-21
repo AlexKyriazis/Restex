@@ -10,9 +10,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "report")
 @EntityListeners(AuditingEntityListener.class)
-//@NamedQuery(name = "Report.getReportsByPriorityAndUsername",
-//        query = "SELECT r FROM Report JOIN Employee e WHERE e.username =: p AND e.priority =: i"
-//)
+@NamedQuery(name = "Report.getReportsByPriorityAndUsername",
+        query = "SELECT r FROM Report r , Employee e WHERE e.username = ?1 AND r.priority = ?2 "
+)
+
 public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,9 +22,9 @@ public class Report {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Enumerated
+    //@Enumerated
     @Column(name = "priority", nullable = false)
-    private Priority priority;
+    private String priority;
 
     @ManyToOne( optional = false)
     private Employee employee;
@@ -52,11 +53,11 @@ public class Report {
         this.title = title;
     }
 
-    public Priority getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(Priority priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 

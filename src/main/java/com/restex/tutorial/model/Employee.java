@@ -22,9 +22,16 @@ public class Employee {
     @Column(name = "email_address", nullable = false)
     private String email;
 
-//   @Column(name = "report_employee", nullable = false)
-//   @OneToMany(mappedBy = "id" ,cascade = CascadeType.ALL)
-//    private List<Report> employeeReport;
+    @Column(name = "username", nullable = false)
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     @Column(name = "gender", nullable = false)
     private String gender;

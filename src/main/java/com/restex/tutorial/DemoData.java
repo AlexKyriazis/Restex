@@ -1,7 +1,6 @@
 package com.restex.tutorial;
 
 import com.restex.tutorial.model.Employee;
-import com.restex.tutorial.model.Priority;
 import com.restex.tutorial.model.Report;
 import com.restex.tutorial.repository.EmployeeRepository;
 import com.restex.tutorial.repository.ReportRepository;
@@ -29,9 +28,10 @@ public class DemoData {
         giorgos.setLastName("giorgopoulos");
         giorgos.setGender("maile");
         giorgos.setTitle("title");
+        giorgos.setUsername("giorgos34");
         Report report = new Report();
         report.setDescription("Dummy report");
-        report.setPriority(Priority.HIGH);
+        report.setPriority("high");
         report.setTitle("a title");
         report.setEmployee(giorgos);
 

@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * The basic controller of the application.
+ */
 @RestController
 @RequestMapping("/api/reports")
 public class ReportController {

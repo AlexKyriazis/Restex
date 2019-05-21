@@ -4,6 +4,7 @@ import com.restex.tutorial.model.Employee;
 import com.restex.tutorial.model.Report;
 import com.restex.tutorial.repository.EmployeeRepository;
 import com.restex.tutorial.repository.ReportRepository;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,9 +15,6 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -88,18 +86,10 @@ public class ApplicationTests {
         Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
 
-    @Test
-    public void testGetPageDoesntExist() {
+    @After
+    public void deleteData() {
 
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-
-        String url = getRootUrl() + "api/reports/userNamePriority/?username=giorgos34&priority=low&pageNumber=10";
-
-        Map<String, String> params = new HashMap<>();
-        params.put("pageNumber", "1");
-        params.put("username", "giorgos34");
-        params.put("priority", "low");
-
+        repoReport.deleteAll();
+        repoEmployee.deleteAll();
     }
 }

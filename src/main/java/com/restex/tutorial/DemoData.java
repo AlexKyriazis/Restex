@@ -9,6 +9,9 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+/**
+ * Class for the insertion of test data
+ */
 @Component
 public class DemoData {
 
@@ -19,9 +22,14 @@ public class DemoData {
     private ReportRepository repoReport;
 
 
+    /**
+     * @param event The application is ready Event
+     */
     @EventListener
     public void appReady(ApplicationReadyEvent event) {
 
+        repoReport.deleteAll();
+        repoEmployee.deleteAll();
         Employee giorgos = new Employee();
         giorgos.setEmail("mail@mail.com");
         giorgos.setFirstName("giorgos");

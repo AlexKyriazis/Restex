@@ -5,6 +5,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
+/**
+ * The Employee entity
+ */
 @Entity
 @Table(name = "employee")
 @EntityListeners(AuditingEntityListener.class)
@@ -25,6 +28,13 @@ public class Employee {
     @Column(name = "username", nullable = false)
     private String username;
 
+    @Column(name = "gender", nullable = false)
+    private String gender;
+
+    @Column(name = "title", nullable = false)
+    private String title;
+
+
     public String getUsername() {
         return username;
     }
@@ -33,15 +43,14 @@ public class Employee {
         this.username = username;
     }
 
-    @Column(name = "gender", nullable = false)
-    private String gender;
 
-    @Column(name = "title", nullable = false)
-    private String title;
-
+    /**
+     * @return the id
+     */
     public long getId() {
         return id;
     }
+
 
     public void setId(long id) {
         this.id = id;
@@ -70,14 +79,6 @@ public class Employee {
     public void setEmail(String email) {
         this.email = email;
     }
-
-//    public List<Report> getEmployeeReport() {
-//        return employeeReport;
-//    }
-//
-//    public void setEmployeeReport(List<Report> employeeReport) {
-//        this.employeeReport = (List<Report>) employeeReport;
-//    }
 
     public String getGender() {
         return gender;

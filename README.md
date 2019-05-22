@@ -1,6 +1,3 @@
-[![Build Status](https://travis-ci.com/givanthak/spring-boot-rest-api-tutorial.svg?branch=master)](https://travis-ci.com/givanthak/spring-boot-rest-api-tutorial)
-[![Known Vulnerabilities](https://snyk.io/test/github/givanthak/spring-boot-rest-api-tutorial/badge.svg)](https://snyk.io/test/github/givanthak/spring-boot-rest-api-tutorial)
-
 
 
 # Sample REST CRUD API with Spring Boot, Mysql, JPA and Hibernate 
@@ -43,3 +40,14 @@ The app will start running at <http://localhost:8080>.
 ## Explore Rest APIs
 
 The app defines following CRUD APIs.
+
+get all the reports 
+```bash
+http://localhost:8080/api/reports/all
+```
+
+get the reports based by username, priority and pagenumber
+page size is 10 
+```bash
+http://localhost:8080/api/reports/userNamePriority/?username=DESIRABLE_USERNAME&priority=HIGH_OR_LOW&pageNumber=PAGE_NUMBER
+```

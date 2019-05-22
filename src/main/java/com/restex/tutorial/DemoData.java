@@ -28,8 +28,6 @@ public class DemoData {
     @EventListener
     public void appReady(ApplicationReadyEvent event) {
 
-        repoReport.deleteAll();
-        repoEmployee.deleteAll();
         Employee giorgos = new Employee();
         giorgos.setEmail("mail@mail.com");
         giorgos.setFirstName("giorgos");

@@ -45,12 +45,12 @@ public class ApplicationTests {
     @Before
     public void setTestData() {
         Employee giorgos = new Employee();
-        giorgos.setEmail("mail@mail.com");
+        giorgos.setEmail("mail@mai4l.com");
         giorgos.setFirstName("giorgos");
         giorgos.setLastName("giorgopoulos");
         giorgos.setGender("maile");
         giorgos.setTitle("title");
-        giorgos.setUsername("giorgos34");
+        giorgos.setUsername("giorgos345");
         Report report = new Report();
         report.setDescription("Dummy report");
         report.setPriority("high");
